@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MyContext from './configs/MyContext';
 import Login from './components/User/Login';
 import Home from './components/Home/Home';
-import NhanVien from './NhanVien';
+import NhanVien from './components/NhanVien/NhanVien';
+
 
 const initialState = { user: null };
 const reducer = (state, action) => {
@@ -35,7 +36,7 @@ function App() {
           <Routes>
               <Route path='/' element={<Home/>} />
               <Route path="/login" element={<Login />} />
-              {userRole === "1" && (
+              {userRole === 1 && (
                 <>
                   <Route path='/nhanvien' element={<NhanVien/>} />
                 </>
