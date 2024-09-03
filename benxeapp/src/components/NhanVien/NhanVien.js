@@ -1,60 +1,3 @@
-// import React from "react";
-// import API, { endpoints } from "./configs/API";
-
-
-
-// class NhanVien extends React.Component {
-//     constructor(props){
-//         super(props);
-//         this.state = {
-//             nhanVien: null,
-//             loading: true,
-//             error: null
-//         }
-//     }
-
-//     componentDidMount(){
-//         API.get(endpoints['nhanvien']).then(respone => {
-//             this.setState({
-//                 nhanVien: respone.data.results || [],
-//                 loading: false
-//             });
-//             console.log(respone.data.results);
-//         }).catch(error => {
-//             this.setState({
-//                 error: error,
-//                 loading: false
-//             });
-//         });
-//     }
-
-//     render() {
-//         const {nhanVien, loading, error} = this.state;
-
-//         if(loading) return <p>Loading...</p>
-//         if(error) return <p>Error: {error.message}</p>
-
-//         return(
-//            <div>
-//             <h1>Thông tin nhân viên</h1>
-//             {nhanVien.length > 0 ? (
-//                 nhanVien.map((nv, index) => (
-//                     <div key={index}>
-//                         <p>Tên: {nv.Ten_NV}</p>
-//                         {/* Thêm các trường thông tin khác nếu cần */}
-//                         <hr />
-//                     </div>
-//                 ))
-//             ) : (
-//                 <p>Không có thông tin nhân viên nào.</p>
-//             )}
-//            </div>
-//         )
-//     }
-// }
-
-// export default NhanVien
-
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import API, { authAPI, endpoints } from '../../configs/API';
@@ -126,15 +69,11 @@ const NhanVien = () => {
     }
 
     const goToHome = () => {
-        navigate(`/${user.username}`);
+        navigate('/');
     }
 
-    const gotoDetail = (NhanVienID) => {
-        navigate(`/nhanvien/${NhanVienID}`);
-    }
-
-    const gotoAdd = () => {
-        navigate('/them_nhan_vien');
+    const gotoDetail = (idNV) => {
+        navigate(`/detail_nv/${idNV}`);
     }
 
     const search = (value) => {
@@ -180,9 +119,6 @@ const NhanVien = () => {
                 <div className="button-container">
                     <button className="button" style={{ width: 150 }} onClick={goToHome}>
                         Quay lại
-                    </button>
-                    <button className="button" style={{ width: 150 }} onClick={gotoAdd}>
-                        Thêm
                     </button>
                 </div>
                 {loading && page > 1 && <div className="loading">Loading...</div>}
