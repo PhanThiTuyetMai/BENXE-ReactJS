@@ -107,8 +107,8 @@ const ChuyenXeDetail = () => {
         navigate(`/dat_ve/${ChuyenXeID}?Gia=${Gia}`);
     };
 
-    const handleEdit = () => {
-        navigate(`/sua-chuyen-xe/${ChuyenXeID}`);
+    const handleEdit = (ChuyenXeID) => {
+        navigate(`/suachuyenxe/${ChuyenXeID}`);
     };
 
     return (
@@ -153,9 +153,9 @@ const ChuyenXeDetail = () => {
                                     Bình luận
                                 </button>
                             )}
-                            {user && user.Loai_NguoiDung === "1" && (
+                            {user && user.Loai_NguoiDung === 1 && (
                                 <button
-                                    onClick={handleEdit}
+                                    onClick={() => handleEdit(c.id)}
                                     style={styles.button}
                                 >
                                     Sửa
@@ -217,7 +217,7 @@ const ChuyenXeDetail = () => {
     );
 };
 
-// Styles
+
 const styles = {
     container: {
         padding: '20px',

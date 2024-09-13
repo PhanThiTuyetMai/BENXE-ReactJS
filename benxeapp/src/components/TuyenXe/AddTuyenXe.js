@@ -69,7 +69,7 @@ const ThemTuyenXe = () => {
                     {error && <Alert variant="danger">{error}</Alert>}
                     {success && <Alert variant="success">{success}</Alert>}
                     <div className="d-flex justify-content-between mt-4">
-                        <Button variant="secondary" onClick={() => navigate('/danh-sach-tuyen-xe')}>
+                        <Button variant="secondary" onClick={() => navigate('/tuyenxe')}>
                             Quay lại
                         </Button>
                         <Button variant="primary" onClick={addTuyenXe}>

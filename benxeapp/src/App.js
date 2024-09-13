@@ -17,6 +17,8 @@ import ChuyenXeDetail from './components/ChuyenXe/DetailChuyenXe';
 import DatVe from './components/DatVe/DatVe';
 import ThongKeDT from './components/ThongKe/ThongKe';
 import Register from './components/User/Register';
+import ThemCX from './components/ChuyenXe/AddChuyenXe';
+import SuaChuyenXe from './components/ChuyenXe/SuaChuyenXe';
 
 const initialState = { user: null };
 
@@ -56,6 +58,8 @@ function App() {
           <Route path='/add_tuyenxe' element={<ThemTuyenXe />} />
           <Route path='/sua_tuyenxe/:TuyenXeID' element={<SuaTuyenXe />} />
           <Route path='/chuyenxe/tuyen/:TuyenXeID' element={<ChuyenXe />} />
+          <Route path='/add_chuyenxe/:TuyenXeID' element={<ThemCX />} />
+          <Route path='/suachuyenxe/:ChuyenXeID' element={<SuaChuyenXe/>} />
           <Route path='/chuyenxe/detail/:ChuyenXeID' element={<ChuyenXeDetail />} />
           <Route path='/dat_ve/:ChuyenXeID' element={<DatVe />} />
           {userRole === 1 && (

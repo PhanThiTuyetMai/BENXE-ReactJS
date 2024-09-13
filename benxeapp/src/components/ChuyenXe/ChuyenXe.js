@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import API, { endpoints } from '../../configs/API';
-import MyContext from '../../configs/MyContext';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -45,7 +44,7 @@ const ChuyenXe = () => {
             const res = await API.get(url);
             setTuyenXe(res.data.results);
             if (res.data.results.length > 0) {
-                setTuyenXeGia(res.data.results[0].BangGia); // Lưu giá tuyến xe
+                setTuyenXeGia(res.data.results[0].BangGia); 
             }
         } catch (ex) {
             console.error(ex);
@@ -213,7 +212,7 @@ const ChuyenXe = () => {
     };
 
     const gotoThemChuyen = (TuyenXeID) => {
-        // window.location.href = `/Them-Chuyen-Xe/${TuyenXeID}`;
+        navigate(`/add_chuyenxe/${TuyenXeID}`)
     };
 
     return (
